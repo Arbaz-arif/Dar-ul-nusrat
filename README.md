@@ -17,7 +17,7 @@ npm start
 Set in Vercel (or `.env.production`):
 
 ```
-REACT_APP_API_URL=https://dar-ul-nusrat-backned.vercel.app/api
+REACT_APP_API_URL=https://dun-backend.vercel.app/api
 CI=false
 ```
 
@@ -27,4 +27,4 @@ CI=false
 - **Framework:** Create React App
 - **Output Directory:** `build`
 
-Backend repo: https://github.com/Arbaz-arif/Arbaz-arif-Dar-Ul-Nusrat-Backned
+Backend: https://dun-backend.vercel.app — repo: https://github.com/Arbaz-arif/DUN-Backend
