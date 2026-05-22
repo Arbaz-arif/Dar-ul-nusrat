@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
 import { useAuth } from '../context/AuthContext';
 import api from '../utils/api';
 import Layout from '../components/Layout';
@@ -38,11 +38,7 @@ const MyProfilePage = () => {
     profilePicture: ''
   });
 
-  useEffect(() => {
-    loadProfile();
-  }, [user?._id, loadProfile]);
-
-  const loadProfile = async () => {
+  const loadProfile = useCallback(async () => {
     if (!user?._id) return;
     try {
       setLoading(true);
@@ -78,7 +74,11 @@ const MyProfilePage = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [user?._id]);
+
+  useEffect(() => {
+    loadProfile();
+  }, [loadProfile]);
 
   const calculateAge = (dob) => {
     if (!dob) return null;
