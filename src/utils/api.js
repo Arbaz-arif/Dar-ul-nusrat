@@ -1,4 +1,17 @@
-const API_BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const getApiBaseUrl = () => {
+  if (process.env.REACT_APP_API_URL) {
+    return process.env.REACT_APP_API_URL;
+  }
+  if (
+    typeof window !== 'undefined' &&
+    window.location.hostname === 'dar-ul-nusrat.vercel.app'
+  ) {
+    return 'https://dun-backend.vercel.app/api';
+  }
+  return 'http://localhost:5000/api';
+};
+
+const API_BASE_URL = getApiBaseUrl();
 
 class ApiClient {
   constructor() {
